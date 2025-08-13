@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% if user.is_authenticated %}
+        {% block content %}
+        <div class="bg-dark rounded p-3 mt-4 text-center">
+            <h2 class="">Salom <h2 style="color:#23945f; font-weight: 600;">{{user.username|upper}}</h2></h2>
+            <h3>Siz pastdagi tugmani bosish orqali o'zingizni postlaringizni qo'shishingiz mumkun :) </h3>
+            <div class="d-flex justify-content-center align-items-center">
+                <h3 class="m-1"><a href="{% url 'create_post' %}" class="btn btn-success">Create your blogs here</a></h3>
+                <h3 class="m-1"><a href="{% url 'article_list' %}" class="btn btn-success">Postlarni ko'rish</a></h3>
+            </div>
+        </div>
+        {% endblock content %}
+    {% else %}
+    {% block login %}
+    <div class="bg-dark p-4 rounded text-white mt-5">
+        <h1 class="muted">Saytimizga  Xush  Kelipsiz <br>Xurmatli Kuzatuvchi</h1><br>
+        <h2 style="color: aliceblue;">Ro'yxatdan O'tishingizni so'raymiz <br> :)</h2><br>
+        <a href="{% url 'login' %}" class="btn btn-success mb-4">Kirish</a><br>
+        <p class="muted text-white">Eslatma : Agar avval ro'yxatdan o'tgan bo'lsangiz ong burchakdagi "Log In" tugmasi orqali parol va foydalanuchi nomingiz orqali kirsangiz bo'ladi <br>
+        Agar avval ro'yxatdan o'tmagan bo'lsangiz Sign Up tugmasini bosish orqali saytimizdan ro'yxatdan o'tib olishingiz mumkun bo'ladi :)
+    </p>
+    </div>
+   
+
+
+
+    {% endblock login %}     
+    {% endif %}

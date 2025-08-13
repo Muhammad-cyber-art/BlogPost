@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block blog %}
+<div class="container text-white mt-3 bg-dark rounded p-3">
+  <h2>Mavjud postlar :</h2>
+  {% if object_list %}
+  <ol>
+  {% for post in posts %}
+    <li>
+      <h6>
+        <a href="{% url 'article_detail' post.pk %}">.{{post.title}}</a>
+      </h6>
+    </li>
+    {% endfor %} 
+  </ol>
+  <div class="d-flex justify-content-between">
+    <p></p>
+    <a class="btn btn-success" href="{% url 'home' %}">Back</a>
+  </div>
+  {% else %} 
+  <div class="d-flex justify-content-between align-items-center">
+    <p>Postlar qo'shilmagan</p>
+    <a class="btn btn-success ms-5" href="{% url 'home' %}">Back</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock blog %}

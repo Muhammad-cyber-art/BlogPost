@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block blog %}
+<div class="container bg-dark rounded mt-3 p-3 text-white">
+    <h2>{{post.id}}.{{post.title}}</h2>
+    <p style="font-size: large;">{{post.body}}</p>
+    <a href="{% url 'delete_post' post.pk %}">Delete post</a> |
+    <a href="{% url 'article_list' %}">Go to Post List</a>
+</div>
+{% endblock blog %}

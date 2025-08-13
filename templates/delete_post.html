@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block blog %}
+    <div class="container bg-dark rounded p-4 mt-3 text-white ">
+        <form action="" method="post">{%csrf_token %}
+            <h3>{{post.title}} 'post is Deleting</h3>
+            {{form.as_p}}
+            <button class="btn btn-success" type="submit">Delete</button>
+            <a class="btn btn-success" href="{% url 'article_detail' post.pk %}">Cancle</a>
+        </form>
+    </div>
+{% endblock blog %}
